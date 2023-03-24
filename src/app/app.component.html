@@ -363,17 +363,12 @@
     <th>Nom</th>
     <th>Prenom</th>
     <th>Age</th>
-    <tr *ngFor="let e of etudiant; let id=index; let f=first; let l=last">
-      <div *ngIf="f; then enGras; else enNormal " >
-        <ng-template #enGras font-weight='bold'> 
-          <ng-template #enNormal font-weight='regular'> 
-            <td>{{id}}</td>
-            <td>{{e.nom}}</td>
-            <td>{{e.prenom}}</td>
-            <td>{{e.age}}</td>
-          </ng-template>
-        </ng-template>
-      </div>
+    <tr *ngFor="let e of etudiant; let id=index; let f=first; let l=last; let isEven=even"
+    class="{{choixClasse(f, l)}} {{choixClasse2(isEven)}}">
+      <td>{{id}}</td>
+      <td>{{e.nom}}</td>
+      <td>{{e.prenom}}</td>
+      <td>{{e.age}}</td>
     </tr>
   </table>
 
